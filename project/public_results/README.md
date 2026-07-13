@@ -9,4 +9,4 @@ This directory is the clean manuscript-facing result layer.
 - `sink_falsification/` — cohort and uncertainty summaries for the sink falsification controls
 - `biology_parameter_robustness/` — bounded phenomenological robustness summaries for the primary and oxygen-sensitivity branches
 - `smoothing_kernel_sensitivity/` — three-kernel sensitivity summary
-- `paper_regeneration_smoke/` — frozen manuscript artifact smoke-check outputs
+- `paper_regeneration_smoke/` — frozen manuscript artifact smoke-check summaries

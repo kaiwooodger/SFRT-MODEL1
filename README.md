@@ -13,7 +13,6 @@ It exposes descriptive public entry points, descriptive manuscript-facing result
 - `project/topas/` — TOPAS templates
 - `figures/manuscript_clean/` — publication-ready figures
 - `manuscript/` — manuscript PDF plus reviewer-facing tables and guides
-- `bundle_manifest.tsv` — source-to-bundle mapping for this package
 
 ## Quick start
 

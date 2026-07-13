@@ -1,6 +1,6 @@
 # SFRT biological risk-analysis reproducibility bundle
 
-This repository is the clean GitHub-facing reproducibility package for the PMB revision workflow.
+This repository is the clean GitHub-facing reproducibility package revision workflow.
 
 It exposes descriptive public entry points, descriptive manuscript-facing result directories, and the current publication-ready figure set, while preserving the original implementation scripts in a provenance layer so the scientific workflow remains reproducible.
 

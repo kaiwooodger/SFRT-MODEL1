@@ -136,7 +136,7 @@ write_text_file() {
   cat > "${dst}" <<EOF
 $*
 EOF
-  manifest_add "generated" "(builder template)" "${dst#${TARGET_ROOT}/}"
+  manifest_add "generated" "(template)" "${dst#${TARGET_ROOT}/}"
 }
 
 replace_text() {
@@ -288,11 +288,11 @@ cat > "${TARGET_ROOT}/project/scripts/internal_legacy/clean_entrypoints.json" <<
   "regenerate_manuscript_figures": "render_pmb_source_clean_figures.py"
 }
 EOF
-manifest_add "generated" "(builder template)" "project/scripts/internal_legacy/clean_entrypoints.json"
+manifest_add "generated" "(template)" "project/scripts/internal_legacy/clean_entrypoints.json"
 
 cat > "${TARGET_ROOT}/project/scripts/legacy_dispatch.py" <<'EOF'
 #!/usr/bin/env python3
-"""Dispatch clean public entry points to the preserved implementation layer."""
+"""Dispatch repository entry points to the preserved implementation layer."""
 
 from __future__ import annotations
 
@@ -323,7 +323,7 @@ if __name__ == "__main__":
     raise SystemExit(main())
 EOF
 chmod +x "${TARGET_ROOT}/project/scripts/legacy_dispatch.py"
-manifest_add "generated" "(builder template)" "project/scripts/legacy_dispatch.py"
+manifest_add "generated" "(template)" "project/scripts/legacy_dispatch.py"
 
 write_python_wrapper \
   "${TARGET_ROOT}/project/scripts/generate_synthetic_cohort.py" \
@@ -364,7 +364,7 @@ write_python_wrapper \
 
 cat > "${TARGET_ROOT}/project/scripts/verify_public_bundle.py" <<'EOF'
 #!/usr/bin/env python3
-"""Verify the clean public bundle against the frozen manuscript headline numbers."""
+"""Verify the repository against the frozen manuscript headline numbers."""
 
 from __future__ import annotations
 
@@ -424,7 +424,7 @@ if __name__ == "__main__":
     raise SystemExit(main())
 EOF
 chmod +x "${TARGET_ROOT}/project/scripts/verify_public_bundle.py"
-manifest_add "generated" "(builder template)" "project/scripts/verify_public_bundle.py"
+manifest_add "generated" "(template)" "project/scripts/verify_public_bundle.py"
 
 cat > "${TARGET_ROOT}/project/scripts/reproduce_manuscript.sh" <<'EOF'
 #!/usr/bin/env bash
@@ -448,7 +448,7 @@ Modes:
   public  Validate the bundled manuscript-facing results and report the frozen
           headline numbers. No TOPAS installation is required.
 
-  full    Run the preserved full workflow through the clean public wrappers.
+  full    Run the preserved full workflow through the top-level wrappers.
           Requires TOPAS_BIN and G4_DATA_DIR.
 USAGE
 }
@@ -514,13 +514,13 @@ echo
 echo "Reproducibility flow complete."
 EOF
 chmod +x "${TARGET_ROOT}/project/scripts/reproduce_manuscript.sh"
-manifest_add "generated" "(builder template)" "project/scripts/reproduce_manuscript.sh"
+manifest_add "generated" "(template)" "project/scripts/reproduce_manuscript.sh"
 
 write_text_file \
   "${TARGET_ROOT}/project/scripts/START_HERE.md" \
 "# Start Here
 
-This is the clean public reproducibility layer for the PMB revision package.
+This directory contains the main reproducibility entry points for the PMB revision package.
 
 Use this short path:
 
@@ -538,20 +538,20 @@ Use this short path:
   - Does not require TOPAS.
 
 - \`full\`
-  - Uses the clean wrappers to call the preserved full implementation.
+  - Uses the top-level wrappers to call the preserved full implementation.
   - Requires TOPAS and Geant4.
 
 ## Provenance note
 
 The original implementation scripts are preserved in \`project/scripts/internal_legacy/\`.
 They retain their historical names so the scientific workflow remains runnable, but the
-public entry points and public results in this bundle use descriptive naming."
+top-level entry points and manuscript-facing results use descriptive naming."
 
 write_text_file \
   "${TARGET_ROOT}/project/scripts/SCRIPT_MAP.md" \
 "# Script Map
 
-## Clean public entry points
+## Primary entry points
 
 | Purpose | Script |
 | --- | --- |
@@ -570,7 +570,7 @@ write_text_file \
 
 - \`internal_legacy/\` contains the preserved implementation and provenance scripts.
 - That layer keeps the original working names so the scientific dependency chain does not break.
-- The clean public layer is what should be linked from the GitHub README and used for first-pass review."
+- The top-level scripts in this directory are the recommended review and rerun entry points."
 
 write_text_file \
   "${TARGET_ROOT}/project/public_results/README.md" \
@@ -627,7 +627,7 @@ The clean wrappers call the preserved full implementation stored in \`project/sc
 
 ## Important note
 
-This repository is a clean public bundle. The exposed entry points and result directories are descriptive and stable for GitHub review. The original implementation scripts are preserved only for provenance and full reruns."
+This repository is a reproducibility package. The exposed entry points and result directories are descriptive and stable for GitHub review. The original implementation scripts are preserved only for provenance and full reruns."
 
 write_text_file \
   "${TARGET_ROOT}/manuscript/figure_manifest.md" \
@@ -662,14 +662,14 @@ It exposes descriptive public entry points, descriptive manuscript-facing result
 
 ## Repository structure
 
-- \`project/scripts/\` — clean public wrappers and verification scripts
+- \`project/scripts/\` — top-level wrappers and verification scripts
 - \`project/scripts/internal_legacy/\` — preserved original implementation scripts
 - \`project/public_results/\` — clean manuscript-facing result tables and summaries
 - \`project/data/\` — small supporting input files
 - \`project/topas/\` — TOPAS templates
 - \`figures/manuscript_clean/\` — publication-ready figures
 - \`manuscript/\` — manuscript PDF plus reviewer-facing tables and guides
-- \`bundle_manifest.tsv\` — source-to-bundle mapping for this package
+- \`bundle_manifest.tsv\` — package manifest for this repository
 
 ## Quick start
 
@@ -690,7 +690,7 @@ bash project/scripts/reproduce_manuscript.sh --mode full
 
 ## Reproducibility note
 
-The clean public layer avoids internal stage labels in the main review surface. Where historical implementation names were necessary for script stability, they were preserved inside \`project/scripts/internal_legacy/\` and kept out of the first-pass review path."
+The top-level review layer avoids internal stage labels in the main review surface. Where historical implementation names were necessary for script stability, they were preserved inside \`project/scripts/internal_legacy/\` and kept out of the first-pass review path."
 
 write_text_file \
   "${TARGET_ROOT}/.gitignore" \

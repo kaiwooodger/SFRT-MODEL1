@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dispatch clean public entry points to the preserved implementation layer."""
+"""Dispatch repository entry points to the preserved implementation layer."""
 
 from __future__ import annotations
 

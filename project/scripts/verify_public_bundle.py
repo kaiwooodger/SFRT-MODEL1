@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the clean public bundle against the frozen manuscript headline numbers."""
+"""Verify the repository against the frozen manuscript headline numbers."""
 
 from __future__ import annotations
 

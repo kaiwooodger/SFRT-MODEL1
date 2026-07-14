@@ -1,6 +1,6 @@
 # Start Here
 
-This is the clean public reproducibility layer for the PMB revision package.
+This directory contains the main reproducibility entry points for the PMB revision package.
 
 Use this short path:
 
@@ -18,11 +18,11 @@ Use this short path:
   - Does not require TOPAS.
 
 - `full`
-  - Uses the clean wrappers to call the preserved full implementation.
+  - Uses the top-level wrappers to call the preserved full implementation.
   - Requires TOPAS and Geant4.
 
 ## Provenance note
 
 The original implementation scripts are preserved in `project/scripts/internal_legacy/`.
 They retain their historical names so the scientific workflow remains runnable, but the
-public entry points and public results in this bundle use descriptive naming.
+top-level entry points and manuscript-facing results use descriptive naming.

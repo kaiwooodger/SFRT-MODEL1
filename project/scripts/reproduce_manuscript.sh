@@ -19,7 +19,7 @@ Modes:
   public  Validate the bundled manuscript-facing results and report the frozen
           headline numbers. No TOPAS installation is required.
 
-  full    Run the preserved full workflow through the clean public wrappers.
+  full    Run the preserved full workflow through the top-level wrappers.
           Requires TOPAS_BIN and G4_DATA_DIR.
 USAGE
 }

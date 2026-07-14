@@ -1,6 +1,6 @@
 # Script Map
 
-## Clean public entry points
+## Primary entry points
 
 | Purpose | Script |
 | --- | --- |
@@ -19,4 +19,4 @@
 
 - `internal_legacy/` contains the preserved implementation and provenance scripts.
 - That layer keeps the original working names so the scientific dependency chain does not break.
-- The clean public layer is what should be linked from the GitHub README and used for first-pass review.
+- The top-level scripts in this directory are the recommended review and rerun entry points.

@@ -474,7 +474,7 @@ def build_response_matrix() -> None:
             "reviewer_comment": "Reproducibility package needs to be reviewer-usable",
             "change_made": "Built a reviewer start-here layer, PMB reproducibility guide, and clean-checkout status note.",
             "file_or_section": "README.md; pmb_reproducibility_guide.md; clean_checkout_repro_status.md",
-            "result": "Local rerun path is documented; clean public-clone blockers are explicitly identified before push.",
+            "result": "Local rerun path is documented; public-clone blockers are explicitly identified before push.",
         },
     ]
     write_csv(MANUSCRIPT / "reviewer_response_matrix.csv", rows)

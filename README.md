@@ -34,3 +34,11 @@ bash project/scripts/reproduce_manuscript.sh --mode full
 ## Reproducibility note
 
 The clean public layer avoids internal stage labels in the main review surface. Where historical implementation names were necessary for script stability, they were preserved inside `project/scripts/internal_legacy/` and kept out of the first-pass review path.
+## Citation 
+If you use this software, adapt the biological modelling framework, or use results derived from this repository in published research, please cite:
+
+Kai Woodger, “Biology-informed reinterpretation of lattice radiotherapy using non-local bystander signalling and anatomy-aware vascular sink modelling,” Physics in Medicine & Biology, 2026.
+
+DOI: https://doi.org/10.1088/1361-6560/ae94dd
+
+Citation metadata are also provided in CITATION.cff.
